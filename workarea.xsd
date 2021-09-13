@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.WorkArea.com"
+            xmlns="http://www.WorkArea.com"
+            elementFormDefault="qualified">
+ 
+    <xsd:simpleType name="phoneNo"> 
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="ext[0-9][0-9][0-9]"/>
+        </xsd:restriction>
+    </xsd:simpleType> 
+    
+    <xsd:simpleType name="computer">                  
+        <xsd:restriction base="xsd:string">                       
+            <xsd:enumeration value="yes"/>
+            <xsd:enumeration value="no"/>                     
+        </xsd:restriction>                   
+    </xsd:simpleType> 
+    
+    <xsd:simpleType name="companyPosition">                  
+        <xsd:restriction base="xsd:string">                       
+            <xsd:enumeration value="Manager"/>
+            <xsd:enumeration value="Employee"/> 
+            <xsd:enumeration value="Secretary"/> 
+            <xsd:enumeration value="Director"/>                   
+        </xsd:restriction>                   
+    </xsd:simpleType> 
+    
+    <xsd:simpleType name="salaryPerYear"> 
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="\p{Sc}([1-9])?[1-9][0-9],[0-9][0-9][0-9]"/>
+        </xsd:restriction>
+    </xsd:simpleType> 
+    
+    <xsd:simpleType name="staffId"> 
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="ID\p{Nd}\p{Nd}\p{Nd}"/>
+        </xsd:restriction>
+    </xsd:simpleType> 
+    
+    <xsd:element name="desk">
+        <xsd:complexType>           
+            <xsd:sequence>
+                <xsd:element name="phoneNo" type="phoneNo"/>
+                <xsd:element name="computer" type="computer"/>
+                <xsd:element name="numDrawers" type="xsd:nonNegativeInteger"/>
+                <xsd:element name="companyPosition" type="companyPosition"/>
+                <xsd:element name="salaryPerYear" type="salaryPerYear"/>
+            </xsd:sequence>
+            <xsd:attribute name="owner" type="xsd:string" />  
+            <xsd:attribute name="staffId" type="staffId" />   
+        </xsd:complexType>
+    </xsd:element>
+     
+    <xsd:element name="WorkArea">
+        <xsd:complexType>           
+            <xsd:sequence>   
+                <xsd:element ref="desk" maxOccurs="unbounded"/>                                                
+            </xsd:sequence>   
+        </xsd:complexType>
+    </xsd:element>        
+    
+</xsd:schema>  

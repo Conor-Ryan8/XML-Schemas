@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<example    xmlns="http://www.ShapeTempClassSize.com"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.ShapeTempClassSize.com shapetempclass.xsd">
+    
+    <temp>105.0</temp>
+    <shape>oval</shape>
+    <classSize>10</classSize>
+    
+</example>

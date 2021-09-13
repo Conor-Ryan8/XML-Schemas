@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<HundredMetres  xmlns="http://www.HundredMeters.com"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="http://www.HundredMeters.com hundredmeters.xsd">
+
+    <competitor finished="3rd">
+        <name>Conor</name>
+        <lane>8</lane>
+        <country>ireland</country>
+    </competitor>
+    
+    <competitor finished="8th">
+        <name>Mat</name>
+        <lane>5</lane>
+        <country>Norway</country>
+    </competitor>
+         
+</HundredMetres>

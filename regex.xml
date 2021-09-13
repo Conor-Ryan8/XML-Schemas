@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<details    xmlns="http://www.regexp.com"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.regexp.com regex.xsd">
+
+    <item>
+        <cost>€123.45</cost>
+        <quantity>19</quantity>
+    </item>
+    
+    <from>
+        <title>Mr.</title>
+        <fname>Conor</fname>
+        <surname>Ryan</surname>
+        <address>Limerick, Co. Limerick</address>
+        <payment>
+            <creditcard>VISA</creditcard>
+            <number>1234132347654643</number>
+            <expiry>12/05</expiry>
+            <cvv>125</cvv>
+        </payment>
+    </from>
+    
+</details>

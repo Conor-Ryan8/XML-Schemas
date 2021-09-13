@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.champions.com"
+            xmlns="http://www.champions.com"
+            elementFormDefault="qualified">
+ 
+    <xsd:simpleType name="ground">                  
+        <xsd:restriction base="xsd:string">                       
+            <xsd:enumeration value="Etihad"/>
+            <xsd:enumeration value="The Emirates"/>  
+            <xsd:enumeration value="Stamford Bridge"/>   
+            <xsd:enumeration value="Anfield"/>                    
+        </xsd:restriction>                   
+    </xsd:simpleType> 
+     
+    <xsd:simpleType name="team">                  
+        <xsd:restriction base="xsd:string">                       
+            <xsd:enumeration value="Man City"/>
+            <xsd:enumeration value="Arsenal"/>  
+            <xsd:enumeration value="Chelsea"/>   
+            <xsd:enumeration value="Liverpool"/>                    
+        </xsd:restriction>                   
+    </xsd:simpleType> 
+    
+    <xsd:simpleType name="champs">                  
+        <xsd:restriction base="xsd:integer">                       
+            <xsd:minInclusive value="0"/>
+            <xsd:maxInclusive value="5"/>                           
+        </xsd:restriction>                   
+    </xsd:simpleType>
+
+    <xsd:element name="team">
+        <xsd:complexType>           
+            <xsd:sequence>
+                <xsd:element name="owner" type="xsd:string" maxOccurs="unbounded"/>
+                <xsd:element name="ground" type="ground"/>
+                <xsd:element name="numChamps" type="champs"/>
+                <xsd:element name="challengers" type="xsd:boolean" default="false"/>
+            </xsd:sequence>
+            <xsd:attribute name="name" type="team" />   
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="CLTeams">
+        <xsd:complexType>           
+            <xsd:sequence>
+                <xsd:element name="year" type="xsd:integer"/>     
+                <xsd:element ref="team" maxOccurs="4"/>                                                
+            </xsd:sequence>   
+        </xsd:complexType>
+    </xsd:element>          
+                                  
+</xsd:schema>

@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.TennisSlams.org"
+            xmlns="http://www.TennisSlams.org"
+            elementFormDefault="qualified">
+  
+    <!-- ################### Simple Element Declarations ################### -->   
+    <xsd:simpleType name="name">                  
+        <xsd:restriction base="xsd:string">                       
+            <xsd:enumeration value="Australia"/>
+            <xsd:enumeration value="French Open"/> 
+            <xsd:enumeration value="Wimbledon"/>   
+            <xsd:enumeration value="US Open"/>                  
+        </xsd:restriction>                   
+    </xsd:simpleType>  
+    
+    <xsd:simpleType name="winner">                  
+        <xsd:restriction base="xsd:string">                       
+            <xsd:enumeration value="Djokovic"/>
+            <xsd:enumeration value="Nadal"/> 
+            <xsd:enumeration value="Federer"/>                
+        </xsd:restriction>                   
+    </xsd:simpleType> 
+
+    <xsd:simpleType name="runnerUp">                  
+        <xsd:restriction base="xsd:string">                       
+            <xsd:enumeration value="Tsonga"/>
+            <xsd:enumeration value="Federer"/> 
+            <xsd:enumeration value="Murray"/>                    
+        </xsd:restriction>                   
+    </xsd:simpleType>  
+    
+    <xsd:simpleType name="score"> 
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[0-6]-[0-4],[0-6]-[0-4],[0-6]-[0-4]"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="surface">                  
+        <xsd:restriction base="xsd:string">                       
+            <xsd:enumeration value="Rebound Ace"/>
+            <xsd:enumeration value="Clay"/> 
+            <xsd:enumeration value="Grass"/>   
+            <xsd:enumeration value="Hard Court"/>                  
+        </xsd:restriction>                   
+    </xsd:simpleType>  
+    
+    <xsd:simpleType name="semiFinalist">                  
+        <xsd:restriction base="xsd:string">                       
+            <xsd:enumeration value="Nadal"/>
+            <xsd:enumeration value="Federer"/> 
+            <xsd:enumeration value="Djokovic"/>   
+            <xsd:enumeration value="Monfils"/>
+            <xsd:enumeration value="Safin"/>
+            <xsd:enumeration value="Schuettler"/>                  
+        </xsd:restriction>                   
+    </xsd:simpleType>  
+    
+    <!-- ################### Complex Element Declaration ################### -->     
+    <xsd:element name="slam">
+        <xsd:complexType>           
+            <xsd:sequence>
+                <xsd:element name="winner" type="winner"/>
+                <xsd:element name="runnerUp" type="runnerUp"/>
+                <xsd:element name="score" type="score"/>
+                <xsd:element name="surface" type="surface"/>
+                <xsd:element name="semiFinalist" type="semiFinalist" maxOccurs="2"/>
+            </xsd:sequence>
+            <xsd:attribute name="name" type="name" />
+            <xsd:attribute name="year" type="xsd:gYear" />   
+        </xsd:complexType>
+    </xsd:element> 
+                  
+    <!-- ################### Main Element ################### -->                     
+    <xsd:element name="slams">
+        <xsd:complexType>           
+            <xsd:sequence>   
+                <xsd:element ref="slam" maxOccurs="4"/>                                           
+            </xsd:sequence>         
+        </xsd:complexType>
+    </xsd:element>        
+    
+</xsd:schema>  
